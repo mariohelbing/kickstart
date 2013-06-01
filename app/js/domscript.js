@@ -1,0 +1,5 @@
+function dom_init() {
+
+  
+
+}
