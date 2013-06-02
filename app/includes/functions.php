@@ -1,6 +1,26 @@
 <?php
 
-function rglob($pattern, $flags = 0, $path = '') {	// recusive dirscan from given path	
+/**
+ * Recursive glob()
+ *
+ * @link        http://php.net/glob
+ * @author      HM2K <hm2k@php.net>
+ * @version     $Revision: 1.2 $
+ * @require     PHP 4.3.0 (glob)
+ *
+ * @param int $pattern
+ *  	the pattern passed to glob()
+ * @param int $flags
+ *  	the flags passed to glob()
+ * @param string $path
+ *  	the path to scan
+ * @return mixed
+ *  	an array of files in the given path matching the pattern.
+ *
+ * example: $fileList = rglob("*", GLOB_MARK, 'C:\Users\Mario\Desktop\Dropbox\htdocs');
+ *
+ */
+function rglob($pattern, $flags = 0, $path = '') {	
 	if (!$path && ($dir = dirname($pattern)) != '.') {
 	if ($dir == '\\' || $dir == '/') $dir = '';
 	return rglob(basename($pattern), $flags, $dir . '/');
